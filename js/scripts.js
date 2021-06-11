@@ -1,26 +1,10 @@
-/*
-We store our game status element here to allow us to more easily 
-use it later on 
-*/
+// On charge les informations utiles
 const statut = document.querySelector("h2")
-/*
-Here we declare some variables that we will use to track the 
-game state throught the game. 
-*/
-/*
-We will use jeuActif to pause the game in case of an end scenario
-*/
 let jeuActif = true
-/*
-We will store our current player here, so we know whos turn 
-*/
 let joueurActif = "X"
-/*
-We will store our current game state here, the form of empty strings in an array
- will allow us to easily track played cells and validate the game state later on
-*/
 let etatJeu = ["", "", "", "", "", "", "", "", ""]
 
+// On définit les conditions de victoire
 const conditionsVictoire = [
     [0, 1, 2],
     [3, 4, 5],
@@ -32,85 +16,90 @@ const conditionsVictoire = [
     [2, 4, 6]
 ]
 
-/*
-Here we have declared some messages we will display to the user during the game.
-Since we have some dynamic factors in those messages, namely the current player,
-we have declared them as functions, so that the actual message gets created with 
-current data every time we need it.
-*/
+// Messages
 const gagne = () => `Le joueur ${joueurActif} a gagné`
 const egalite = () => "Egalité"
 const tourJoueur = () => `C'est au tour du joueur ${joueurActif}`
-/*
-We set the inital message to let the players know whose turn it is
-*/
+
+// On affiche quel joueur commence
 statut.innerHTML = tourJoueur()
-/*
-And finally we add our event listeners to the actual game cells, as well as our 
-restart button
-*/
+
+// On met en place les écouteurs d'évènements
 document.querySelectorAll(".case").forEach(cell => cell.addEventListener("click", gestionClicCase))
 document.querySelector("#recommencer").addEventListener("click", recommencer)
 
-function gestionClicCase() {
-        const indexCase = parseInt(this.dataset.index)
-    /* 
-    Next up we need to check whether the call has already been played, 
-    or if the game is paused. If either of those is true we will simply ignore the click.
-    */
-        if (etatJeu[indexCase] !== "" || !jeuActif) {
-            return
-        }
-    /*
-    We update our internal game state to reflect the played move, 
-    as well as update the user interface to reflect the played move
-    */
-        etatJeu[indexCase] = joueurActif
-        this.innerHTML = joueurActif
-        verifGagne()
+/**
+ * Cette fonction gère le clic sur les cases du jeu
+ */
+function gestionClicCase(){
+    // On récupère l'index de la case cliquée
+    const indexCase = parseInt(this.dataset.index)
+    
+    // On vérifie si la case est déjà remplie ou le jeu terminé
+    if(etatJeu[indexCase] !== "" || !jeuActif){
+        return
     }
 
-        function verifGagne() {
-            let tourGagnant = false
-            for (let conditionVictoire of conditionsVictoire) {
-                let val1 = etatJeu[conditionVictoire[0]]
-                let val2 = etatJeu[conditionVictoire[1]]
-                let val3 = etatJeu[conditionVictoire[2]]
-                if (val1 === '' || val2 === '' || val3 === '') {
-                    continue
-                }
-                if (val1 === val2 && val2 === val3) {
-                    tourGagnant = true
-                    break
-                }
-            }
-        if (tourGagnant) {
-                statut.innerHTML = gagne()
-                jeuActif = false
-                return
-            }
-        /* 
-        We will check weather there are any values in our game state array 
-        that are still not populated with a player sign
-        */
-            if (!etatJeu.includes("")) {
-                statut.innerHTML = egalite()
-                jeuActif = false
-                return
-            }
-        /*
-        If we get to here we know that the no one won the game yet, 
-        and that there are still moves to be played, so we continue by changing the current player.
-        */
-            joueurActif = joueurActif === "X" ? "O" : "X"
-            statut.innerHTML = tourJoueur()
+    // On écrit le symbole du joueur dans le tableau etatJeu et la case
+    etatJeu[indexCase] = joueurActif
+    this.innerHTML = joueurActif
+
+    // On vérifie si le joueur a gagné
+    verifGagne()
+}
+
+/**
+ * Cette fonction vérifie si le joueur a gagné
+ */
+function verifGagne(){
+    let tourGagnant = false
+
+    // On parcourt toutes les conditions de victoire
+    for(let conditionVictoire of conditionsVictoire){
+        // On récupère les 3 cases de la condition de victoire
+        let val1 = etatJeu[conditionVictoire[0]]
+        let val2 = etatJeu[conditionVictoire[1]]
+        let val3 = etatJeu[conditionVictoire[2]]
+
+        // Si l'une des cases est vide
+        if(val1 === "" || val2 === "" || val3 === ""){
+            continue
         }
 
-        function recommencer() {
-            jeuActif = true
-            joueurActif = "X"
-            etatJeu = ["", "", "", "", "", "", "", "", ""]
-            statut.innerHTML = tourJoueur()
-            document.querySelectorAll(".case").forEach(cell => cell.innerHTML = "")
+        // Si les 3 cases sont identiques
+        if(val1 === val2 && val2 === val3){
+            // On gagne
+            tourGagnant = true
+            break
         }
+    }
 
+    // Si on a gagné
+    if(tourGagnant){
+        statut.innerHTML = gagne()
+        jeuActif = false
+        return
+    }
+
+    // Si toutes les cases sont remplies
+    if(!etatJeu.includes("")){
+        statut.innerHTML = egalite()
+        jeuActif = false
+        return
+    }
+
+    // On change de joueur
+    joueurActif = joueurActif === "X" ? "O" : "X"
+    statut.innerHTML = tourJoueur()
+}
+
+/**
+ * Cette fonction réinitialise le jeu
+ */
+function recommencer(){
+    jeuActif = true
+    joueurActif = "X"
+    etatJeu = ["", "", "", "", "", "", "", "", ""]
+    statut.innerHTML = tourJoueur()
+    document.querySelectorAll(".case").forEach(cell => cell.innerHTML = "")
+}
