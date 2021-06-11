@@ -2,7 +2,7 @@
 We store our game status element here to allow us to more easily 
 use it later on 
 */
-const statusDisplay = document.querySelector("h2")
+const statut = document.querySelector("h2")
 /*
 Here we declare some variables that we will use to track the 
 game state throught the game. 
@@ -33,7 +33,7 @@ const currentPlayerTurn = () => `It's ${currentPlayer}'s turn`
 /*
 We set the inital message to let the players know whose turn it is
 */
-statusDisplay.innerHTML = currentPlayerTurn()
+statut.innerHTML = currentPlayerTurn()
 /*
 And finally we add our event listeners to the actual game cells, as well as our 
 restart button
@@ -103,7 +103,7 @@ function handleCellClick(clickedCellEvent) {
                 }
             }
         if (roundWon) {
-                statusDisplay.innerHTML = winningMessage()
+                statut.innerHTML = winningMessage()
                 gameActive = false
                 return
             }
@@ -135,7 +135,7 @@ function handleCellClick(clickedCellEvent) {
                 }
             }
         if (roundWon) {
-                statusDisplay.innerHTML = winningMessage()
+                statut.innerHTML = winningMessage()
                 gameActive = false
                 return
             }
@@ -145,7 +145,7 @@ function handleCellClick(clickedCellEvent) {
         */
             let roundDraw = !gameState.includes("")
             if (roundDraw) {
-                statusDisplay.innerHTML = drawMessage()
+                statut.innerHTML = drawMessage()
                 gameActive = false
                 return
             }
@@ -158,14 +158,14 @@ function handleCellClick(clickedCellEvent) {
         
         function handlePlayerChange() {
             currentPlayer = currentPlayer === "X" ? "O" : "X"
-            statusDisplay.innerHTML = currentPlayerTurn()
+            statut.innerHTML = currentPlayerTurn()
         }
 
         function handleRestartGame() {
             gameActive = true
             currentPlayer = "X"
             gameState = ["", "", "", "", "", "", "", "", ""]
-            statusDisplay.innerHTML = currentPlayerTurn()
+            statut.innerHTML = currentPlayerTurn()
             document.querySelectorAll(".case").forEach(cell => cell.innerHTML = "")
         }
 
