@@ -71,13 +71,13 @@ function gestionClicCase() {
         function verifGagne() {
             let tourGagnant = false
             for (let conditionVictoire of conditionsVictoire) {
-                let a = etatJeu[conditionVictoire[0]]
-                let b = etatJeu[conditionVictoire[1]]
-                let c = etatJeu[conditionVictoire[2]]
-                if (a === '' || b === '' || c === '') {
+                let val1 = etatJeu[conditionVictoire[0]]
+                let val2 = etatJeu[conditionVictoire[1]]
+                let val3 = etatJeu[conditionVictoire[2]]
+                if (val1 === '' || val2 === '' || val3 === '') {
                     continue
                 }
-                if (a === b && b === c) {
+                if (val1 === val2 && val2 === val3) {
                     tourGagnant = true
                     break
                 }
@@ -102,13 +102,13 @@ function gestionClicCase() {
         function verifGagne() {
             let tourGagnant = false
             for (let conditionVictoire of conditionsVictoire) {
-                let a = etatJeu[conditionVictoire[0]]
-                let b = etatJeu[conditionVictoire[1]]
-                let c = etatJeu[conditionVictoire[2]]
-                if (a === '' || b === '' || c === '') {
+                let val1 = etatJeu[conditionVictoire[0]]
+                let val2 = etatJeu[conditionVictoire[1]]
+                let val3 = etatJeu[conditionVictoire[2]]
+                if (val1 === '' || val2 === '' || val3 === '') {
                     continue
                 }
-                if (a === b && b === c) {
+                if (val1 === val2 && val2 === val3) {
                     tourGagnant = true
                     break
                 }
