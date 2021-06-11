@@ -49,21 +49,14 @@ function gestionClicCase() {
         if (etatJeu[indexCase] !== "" || !jeuActif) {
             return
         }
-    /* 
-    If everything if in order we will proceed with the game flow
-    */    
-        handleCellPlayed(this, indexCase)
+    /*
+    We update our internal game state to reflect the played move, 
+    as well as update the user interface to reflect the played move
+    */
+        etatJeu[indexCase] = joueurActif
+        this.innerHTML = joueurActif
         handleResultValidation()
     }
-
-    function handleCellPlayed(clickedCell, indexCase) {
-        /*
-        We update our internal game state to reflect the played move, 
-        as well as update the user interface to reflect the played move
-        */
-            etatJeu[indexCase] = joueurActif
-            clickedCell.innerHTML = joueurActif
-        }
 
         const winningConditions = [
             [0, 1, 2],
