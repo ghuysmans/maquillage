@@ -8,9 +8,9 @@ Here we declare some variables that we will use to track the
 game state throught the game. 
 */
 /*
-We will use gameActive to pause the game in case of an end scenario
+We will use jeuActif to pause the game in case of an end scenario
 */
-let gameActive = true
+let jeuActif = true
 /*
 We will store our current player here, so we know whos turn 
 */
@@ -58,7 +58,7 @@ function handleCellClick(clickedCellEvent) {
     Next up we need to check whether the call has already been played, 
     or if the game is paused. If either of those is true we will simply ignore the click.
     */
-        if (gameState[clickedCellIndex] !== "" || !gameActive) {
+        if (gameState[clickedCellIndex] !== "" || !jeuActif) {
             return
         }
     /* 
@@ -104,7 +104,7 @@ function handleCellClick(clickedCellEvent) {
             }
         if (roundWon) {
                 statut.innerHTML = winningMessage()
-                gameActive = false
+                jeuActif = false
                 return
             }
         }
@@ -136,7 +136,7 @@ function handleCellClick(clickedCellEvent) {
             }
         if (roundWon) {
                 statut.innerHTML = winningMessage()
-                gameActive = false
+                jeuActif = false
                 return
             }
         /* 
@@ -146,7 +146,7 @@ function handleCellClick(clickedCellEvent) {
             let roundDraw = !gameState.includes("")
             if (roundDraw) {
                 statut.innerHTML = drawMessage()
-                gameActive = false
+                jeuActif = false
                 return
             }
         /*
@@ -162,7 +162,7 @@ function handleCellClick(clickedCellEvent) {
         }
 
         function handleRestartGame() {
-            gameActive = true
+            jeuActif = true
             currentPlayer = "X"
             gameState = ["", "", "", "", "", "", "", "", ""]
             statut.innerHTML = currentPlayerTurn()
