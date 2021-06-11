@@ -1,0 +1,29 @@
+body {
+    font-family: "Arial", sans-serif;
+}
+
+/* the "section" in this case is the entire page
+*/
+section {
+    text-align: center;
+}
+/* MDN Web Docs describes this property
+*/
+.game--container {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    width: 306px;
+    margin: 50px auto;
+}
+/* the cursor property allows cursor styles. I thought cross hairs appropriate.
+*/
+.cell {
+    font-family: "Permanent Marker", cursive;
+    width: 100px;
+    height: 100px;
+    box-shadow: 0 0 0 1px #333333;
+    border: 1px solid #333333;
+    cursor: crosshair;
+line-height: 100px;
+    font-size: 60px;
+}
