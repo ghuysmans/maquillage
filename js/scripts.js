@@ -114,8 +114,7 @@ function gestionClicCase() {
         We will check weather there are any values in our game state array 
         that are still not populated with a player sign
         */
-            let roundDraw = !etatJeu.includes("")
-            if (roundDraw) {
+            if (!etatJeu.includes("")) {
                 statut.innerHTML = egalite()
                 jeuActif = false
                 return
