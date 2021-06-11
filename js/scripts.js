@@ -54,7 +54,7 @@ function handleRestartGame() {
 And finally we add our event listeners to the actual game cells, as well as our 
 restart button
 */
-document.querySelectorAll('.cell').forEach(cell => cell.addEventListener('click', handleCellClick))
+document.querySelectorAll(".case").forEach(cell => cell.addEventListener("click", handleCellClick))
 document.querySelector('.game--restart').addEventListener('click', handleRestartGame)
 
 function handleCellClick(clickedCellEvent) {
@@ -63,12 +63,12 @@ function handleCellClick(clickedCellEvent) {
     */    
         const clickedCell = clickedCellEvent.target
     /*
-    Here we will grab the 'data-cell-index' attribute from the clicked cell to identify where that cell is in our grid. 
+    Here we will grab the 'data-index' attribute from the clicked cell to identify where that cell is in our grid. 
     Please note that the getAttribute will return a string value. Since we need an actual number we will parse it to an 
     integer(number)
     */
         const clickedCellIndex = parseInt(
-          clickedCell.getAttribute('data-cell-index')
+          clickedCell.getAttribute('data-index')
         )
     /* 
     Next up we need to check whether the call has already been played, 
@@ -182,7 +182,6 @@ function handleCellClick(clickedCellEvent) {
             currentPlayer = "X"
             gameState = ["", "", "", "", "", "", "", "", ""]
             statusDisplay.innerHTML = currentPlayerTurn()
-            document.querySelectorAll('.cell')
-                       .forEach(cell => cell.innerHTML = "")
+            document.querySelectorAll(".case").forEach(cell => cell.innerHTML = "")
         }
 

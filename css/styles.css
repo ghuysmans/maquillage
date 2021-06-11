@@ -17,7 +17,7 @@ section {
 }
 /* the cursor property allows cursor styles. I thought cross hairs appropriate.
 */
-.cell {
+.case {
     font-family: "Permanent Marker", cursive;
     width: 100px;
     height: 100px;
