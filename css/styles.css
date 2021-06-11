@@ -1,12 +1,8 @@
 body {
     font-family: "Arial", sans-serif;
-}
-
-/* the "section" in this case is the entire page
-*/
-section {
     text-align: center;
 }
+
 /* MDN Web Docs describes this property
 */
 .game--container {
