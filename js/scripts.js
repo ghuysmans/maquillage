@@ -55,7 +55,7 @@ function gestionClicCase() {
     */
         etatJeu[indexCase] = joueurActif
         this.innerHTML = joueurActif
-        handleResultValidation()
+        verifGagne()
     }
 
         const winningConditions = [
@@ -68,7 +68,7 @@ function gestionClicCase() {
             [0, 4, 8],
             [2, 4, 6]
         ]
-        function handleResultValidation() {
+        function verifGagne() {
             let roundWon = false
             for (let i = 0; i <= 7; i++) {
                 const winCondition = winningConditions[i]
@@ -100,7 +100,7 @@ function gestionClicCase() {
 //             [0, 4, 8],
 //             [2, 4, 6]
 //         ]
-        function handleResultValidation() {
+        function verifGagne() {
             let roundWon = false
             for (let i = 0; i <= 7; i++) {
                 const winCondition = winningConditions[i]
