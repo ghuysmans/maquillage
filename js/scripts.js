@@ -70,8 +70,7 @@ function gestionClicCase() {
         ]
         function verifGagne() {
             let tourGagnant = false
-            for (let i = 0; i <= 7; i++) {
-                const conditionVictoire = conditionsVictoire[i]
+            for (let conditionVictoire of conditionsVictoire) {
                 let a = etatJeu[conditionVictoire[0]]
                 let b = etatJeu[conditionVictoire[1]]
                 let c = etatJeu[conditionVictoire[2]]
@@ -102,8 +101,7 @@ function gestionClicCase() {
 //         ]
         function verifGagne() {
             let tourGagnant = false
-            for (let i = 0; i <= 7; i++) {
-                const conditionVictoire = conditionsVictoire[i]
+            for (let conditionVictoire of conditionsVictoire) {
                 let a = etatJeu[conditionVictoire[0]]
                 let b = etatJeu[conditionVictoire[1]]
                 let c = etatJeu[conditionVictoire[2]]
