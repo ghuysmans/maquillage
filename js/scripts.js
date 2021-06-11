@@ -97,8 +97,8 @@ function verifGagne(){
  * Cette fonction réinitialise le jeu
  */
 function recommencer(){
-    jeuActif = true
     joueurActif = "X"
+    jeuActif = true
     etatJeu = ["", "", "", "", "", "", "", "", ""]
     statut.innerHTML = tourJoueur()
     document.querySelectorAll(".case").forEach(cell => cell.innerHTML = "")
