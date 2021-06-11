@@ -37,10 +37,10 @@ statut.innerHTML = tourJoueur()
 And finally we add our event listeners to the actual game cells, as well as our 
 restart button
 */
-document.querySelectorAll(".case").forEach(cell => cell.addEventListener("click", handleCellClick))
+document.querySelectorAll(".case").forEach(cell => cell.addEventListener("click", gestionClicCase))
 document.querySelector("#recommencer").addEventListener("click", handleRestartGame)
 
-function handleCellClick(clickedCellEvent) {
+function gestionClicCase(clickedCellEvent) {
     /*
     We will save the clicked html element in a variable for easier further use
     */    
