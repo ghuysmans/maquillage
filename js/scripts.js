@@ -26,13 +26,13 @@ Since we have some dynamic factors in those messages, namely the current player,
 we have declared them as functions, so that the actual message gets created with 
 current data every time we need it.
 */
-const winningMessage = () => `Player ${joueurActif} has won!`
-const drawMessage = () => `Game ended in a draw!`
-const currentPlayerTurn = () => `It's ${joueurActif}'s turn`
+const gagne = () => `Le joueur ${joueurActif} a gagné`
+const egalite = () => "Egalité"
+const tourJoueur = () => `C'est au tour du joueur ${joueurActif}`
 /*
 We set the inital message to let the players know whose turn it is
 */
-statut.innerHTML = currentPlayerTurn()
+statut.innerHTML = tourJoueur()
 /*
 And finally we add our event listeners to the actual game cells, as well as our 
 restart button
@@ -102,7 +102,7 @@ function handleCellClick(clickedCellEvent) {
                 }
             }
         if (roundWon) {
-                statut.innerHTML = winningMessage()
+                statut.innerHTML = gagne()
                 jeuActif = false
                 return
             }
@@ -134,7 +134,7 @@ function handleCellClick(clickedCellEvent) {
                 }
             }
         if (roundWon) {
-                statut.innerHTML = winningMessage()
+                statut.innerHTML = gagne()
                 jeuActif = false
                 return
             }
@@ -144,7 +144,7 @@ function handleCellClick(clickedCellEvent) {
         */
             let roundDraw = !etatJeu.includes("")
             if (roundDraw) {
-                statut.innerHTML = drawMessage()
+                statut.innerHTML = egalite()
                 jeuActif = false
                 return
             }
@@ -157,14 +157,14 @@ function handleCellClick(clickedCellEvent) {
         
         function handlePlayerChange() {
             joueurActif = joueurActif === "X" ? "O" : "X"
-            statut.innerHTML = currentPlayerTurn()
+            statut.innerHTML = tourJoueur()
         }
 
         function handleRestartGame() {
             jeuActif = true
             joueurActif = "X"
             etatJeu = ["", "", "", "", "", "", "", "", ""]
-            statut.innerHTML = currentPlayerTurn()
+            statut.innerHTML = tourJoueur()
             document.querySelectorAll(".case").forEach(cell => cell.innerHTML = "")
         }
 
