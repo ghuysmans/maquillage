@@ -69,7 +69,7 @@ function gestionClicCase() {
             [2, 4, 6]
         ]
         function verifGagne() {
-            let roundWon = false
+            let tourGagnant = false
             for (let i = 0; i <= 7; i++) {
                 const winCondition = conditionsVictoire[i]
                 let a = etatJeu[winCondition[0]]
@@ -79,11 +79,11 @@ function gestionClicCase() {
                     continue
                 }
                 if (a === b && b === c) {
-                    roundWon = true
+                    tourGagnant = true
                     break
                 }
             }
-        if (roundWon) {
+        if (tourGagnant) {
                 statut.innerHTML = gagne()
                 jeuActif = false
                 return
@@ -101,7 +101,7 @@ function gestionClicCase() {
 //             [2, 4, 6]
 //         ]
         function verifGagne() {
-            let roundWon = false
+            let tourGagnant = false
             for (let i = 0; i <= 7; i++) {
                 const winCondition = conditionsVictoire[i]
                 let a = etatJeu[winCondition[0]]
@@ -111,11 +111,11 @@ function gestionClicCase() {
                     continue
                 }
                 if (a === b && b === c) {
-                    roundWon = true
+                    tourGagnant = true
                     break
                 }
             }
-        if (roundWon) {
+        if (tourGagnant) {
                 statut.innerHTML = gagne()
                 jeuActif = false
                 return
