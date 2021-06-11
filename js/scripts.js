@@ -89,27 +89,6 @@ function gestionClicCase() {
                 jeuActif = false
                 return
             }
-        }
-
-        function verifGagne() {
-            let tourGagnant = false
-            for (let conditionVictoire of conditionsVictoire) {
-                let val1 = etatJeu[conditionVictoire[0]]
-                let val2 = etatJeu[conditionVictoire[1]]
-                let val3 = etatJeu[conditionVictoire[2]]
-                if (val1 === '' || val2 === '' || val3 === '') {
-                    continue
-                }
-                if (val1 === val2 && val2 === val3) {
-                    tourGagnant = true
-                    break
-                }
-            }
-        if (tourGagnant) {
-                statut.innerHTML = gagne()
-                jeuActif = false
-                return
-            }
         /* 
         We will check weather there are any values in our game state array 
         that are still not populated with a player sign
