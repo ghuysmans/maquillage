@@ -3,9 +3,7 @@ body {
     text-align: center;
 }
 
-/* MDN Web Docs describes this property
-*/
-.game--container {
+#jeu {
     display: grid;
     grid-template-columns: repeat(3, auto);
     width: 306px;
