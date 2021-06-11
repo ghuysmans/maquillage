@@ -71,10 +71,10 @@ function gestionClicCase() {
         function verifGagne() {
             let tourGagnant = false
             for (let i = 0; i <= 7; i++) {
-                const winCondition = conditionsVictoire[i]
-                let a = etatJeu[winCondition[0]]
-                let b = etatJeu[winCondition[1]]
-                let c = etatJeu[winCondition[2]]
+                const conditionVictoire = conditionsVictoire[i]
+                let a = etatJeu[conditionVictoire[0]]
+                let b = etatJeu[conditionVictoire[1]]
+                let c = etatJeu[conditionVictoire[2]]
                 if (a === '' || b === '' || c === '') {
                     continue
                 }
@@ -103,10 +103,10 @@ function gestionClicCase() {
         function verifGagne() {
             let tourGagnant = false
             for (let i = 0; i <= 7; i++) {
-                const winCondition = conditionsVictoire[i]
-                let a = etatJeu[winCondition[0]]
-                let b = etatJeu[winCondition[1]]
-                let c = etatJeu[winCondition[2]]
+                const conditionVictoire = conditionsVictoire[i]
+                let a = etatJeu[conditionVictoire[0]]
+                let b = etatJeu[conditionVictoire[1]]
+                let c = etatJeu[conditionVictoire[2]]
                 if (a === '' || b === '' || c === '') {
                     continue
                 }
