@@ -14,8 +14,7 @@ let jeuActif = true
 /*
 We will store our current player here, so we know whos turn 
 */
-let currentPlayer = "X"
-console.log(currentPlayer)
+let joueurActif = "X"
 /*
 We will store our current game state here, the form of empty strings in an array
  will allow us to easily track played cells and validate the game state later on
@@ -27,9 +26,9 @@ Since we have some dynamic factors in those messages, namely the current player,
 we have declared them as functions, so that the actual message gets created with 
 current data every time we need it.
 */
-const winningMessage = () => `Player ${currentPlayer} has won!`
+const winningMessage = () => `Player ${joueurActif} has won!`
 const drawMessage = () => `Game ended in a draw!`
-const currentPlayerTurn = () => `It's ${currentPlayer}'s turn`
+const currentPlayerTurn = () => `It's ${joueurActif}'s turn`
 /*
 We set the inital message to let the players know whose turn it is
 */
@@ -73,8 +72,8 @@ function handleCellClick(clickedCellEvent) {
         We update our internal game state to reflect the played move, 
         as well as update the user interface to reflect the played move
         */
-            gameState[clickedCellIndex] = currentPlayer
-            clickedCell.innerHTML = currentPlayer
+            gameState[clickedCellIndex] = joueurActif
+            clickedCell.innerHTML = joueurActif
         }
 
         const winningConditions = [
@@ -157,13 +156,13 @@ function handleCellClick(clickedCellEvent) {
         }
         
         function handlePlayerChange() {
-            currentPlayer = currentPlayer === "X" ? "O" : "X"
+            joueurActif = joueurActif === "X" ? "O" : "X"
             statut.innerHTML = currentPlayerTurn()
         }
 
         function handleRestartGame() {
             jeuActif = true
-            currentPlayer = "X"
+            joueurActif = "X"
             gameState = ["", "", "", "", "", "", "", "", ""]
             statut.innerHTML = currentPlayerTurn()
             document.querySelectorAll(".case").forEach(cell => cell.innerHTML = "")
