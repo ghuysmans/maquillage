@@ -20,6 +20,18 @@ We will store our current game state here, the form of empty strings in an array
  will allow us to easily track played cells and validate the game state later on
 */
 let etatJeu = ["", "", "", "", "", "", "", "", ""]
+
+const conditionsVictoire = [
+    [0, 1, 2],
+    [3, 4, 5],
+    [6, 7, 8],
+    [0, 3, 6],
+    [1, 4, 7],
+    [2, 5, 8],
+    [0, 4, 8],
+    [2, 4, 6]
+]
+
 /*
 Here we have declared some messages we will display to the user during the game.
 Since we have some dynamic factors in those messages, namely the current player,
@@ -58,16 +70,6 @@ function gestionClicCase() {
         verifGagne()
     }
 
-        const conditionsVictoire = [
-            [0, 1, 2],
-            [3, 4, 5],
-            [6, 7, 8],
-            [0, 3, 6],
-            [1, 4, 7],
-            [2, 5, 8],
-            [0, 4, 8],
-            [2, 4, 6]
-        ]
         function verifGagne() {
             let tourGagnant = false
             for (let conditionVictoire of conditionsVictoire) {
@@ -89,16 +91,6 @@ function gestionClicCase() {
             }
         }
 
-//         const conditionsVictoire = [
-//             [0, 1, 2],
-//             [3, 4, 5],
-//             [6, 7, 8],
-//             [0, 3, 6],
-//             [1, 4, 7],
-//             [2, 5, 8],
-//             [0, 4, 8],
-//             [2, 4, 6]
-//         ]
         function verifGagne() {
             let tourGagnant = false
             for (let conditionVictoire of conditionsVictoire) {
