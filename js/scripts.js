@@ -40,39 +40,28 @@ restart button
 document.querySelectorAll(".case").forEach(cell => cell.addEventListener("click", gestionClicCase))
 document.querySelector("#recommencer").addEventListener("click", handleRestartGame)
 
-function gestionClicCase(clickedCellEvent) {
-    /*
-    We will save the clicked html element in a variable for easier further use
-    */    
-        const clickedCell = clickedCellEvent.target
-    /*
-    Here we will grab the 'data-index' attribute from the clicked cell to identify where that cell is in our grid. 
-    Please note that the getAttribute will return a string value. Since we need an actual number we will parse it to an 
-    integer(number)
-    */
-        const clickedCellIndex = parseInt(
-          clickedCell.getAttribute('data-index')
-        )
+function gestionClicCase() {
+        const indexCase = parseInt(this.dataset.index)
     /* 
     Next up we need to check whether the call has already been played, 
     or if the game is paused. If either of those is true we will simply ignore the click.
     */
-        if (etatJeu[clickedCellIndex] !== "" || !jeuActif) {
+        if (etatJeu[indexCase] !== "" || !jeuActif) {
             return
         }
     /* 
     If everything if in order we will proceed with the game flow
     */    
-        handleCellPlayed(clickedCell, clickedCellIndex)
+        handleCellPlayed(this, indexCase)
         handleResultValidation()
     }
 
-    function handleCellPlayed(clickedCell, clickedCellIndex) {
+    function handleCellPlayed(clickedCell, indexCase) {
         /*
         We update our internal game state to reflect the played move, 
         as well as update the user interface to reflect the played move
         */
-            etatJeu[clickedCellIndex] = joueurActif
+            etatJeu[indexCase] = joueurActif
             clickedCell.innerHTML = joueurActif
         }
 
