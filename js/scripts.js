@@ -2,8 +2,7 @@
 We store our game status element here to allow us to more easily 
 use it later on 
 */
-const statusDisplay = document.querySelector('.game--status')
-console.log(statusDisplay)
+const statusDisplay = document.querySelector("h2")
 /*
 Here we declare some variables that we will use to track the 
 game state throught the game. 
