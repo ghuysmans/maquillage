@@ -58,7 +58,7 @@ function gestionClicCase() {
         verifGagne()
     }
 
-        const winningConditions = [
+        const conditionsVictoire = [
             [0, 1, 2],
             [3, 4, 5],
             [6, 7, 8],
@@ -71,7 +71,7 @@ function gestionClicCase() {
         function verifGagne() {
             let roundWon = false
             for (let i = 0; i <= 7; i++) {
-                const winCondition = winningConditions[i]
+                const winCondition = conditionsVictoire[i]
                 let a = etatJeu[winCondition[0]]
                 let b = etatJeu[winCondition[1]]
                 let c = etatJeu[winCondition[2]]
@@ -90,7 +90,7 @@ function gestionClicCase() {
             }
         }
 
-//         const winningConditions = [
+//         const conditionsVictoire = [
 //             [0, 1, 2],
 //             [3, 4, 5],
 //             [6, 7, 8],
@@ -103,7 +103,7 @@ function gestionClicCase() {
         function verifGagne() {
             let roundWon = false
             for (let i = 0; i <= 7; i++) {
-                const winCondition = winningConditions[i]
+                const winCondition = conditionsVictoire[i]
                 let a = etatJeu[winCondition[0]]
                 let b = etatJeu[winCondition[1]]
                 let c = etatJeu[winCondition[2]]
