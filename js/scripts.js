@@ -55,7 +55,7 @@ And finally we add our event listeners to the actual game cells, as well as our
 restart button
 */
 document.querySelectorAll(".case").forEach(cell => cell.addEventListener("click", handleCellClick))
-document.querySelector('.game--restart').addEventListener('click', handleRestartGame)
+document.querySelector("#recommencer").addEventListener("click", handleRestartGame)
 
 function handleCellClick(clickedCellEvent) {
     /*
