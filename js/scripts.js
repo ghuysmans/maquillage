@@ -34,21 +34,6 @@ const currentPlayerTurn = () => `It's ${currentPlayer}'s turn`
 We set the inital message to let the players know whose turn it is
 */
 statusDisplay.innerHTML = currentPlayerTurn()
-function handleCellPlayed() {
-
-}
-function handlePlayerChange() {
-
-}
-function handleResultValidation() {
-
-}
-function handleCellClick() {
-
-}
-function handleRestartGame() {
-
-}
 /*
 And finally we add our event listeners to the actual game cells, as well as our 
 restart button
