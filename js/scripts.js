@@ -123,10 +123,6 @@ function gestionClicCase() {
         If we get to here we know that the no one won the game yet, 
         and that there are still moves to be played, so we continue by changing the current player.
         */
-            handlePlayerChange()
-        }
-        
-        function handlePlayerChange() {
             joueurActif = joueurActif === "X" ? "O" : "X"
             statut.innerHTML = tourJoueur()
         }
