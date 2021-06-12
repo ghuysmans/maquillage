@@ -1,0 +1,6 @@
+Pour que les notes s'envoient, ajoutez ceci à .git/config :
+
+[remote "vps"]
+  #...
+	fetch = +refs/notes/*:refs/notes/*
+	push = +refs/notes/*:refs/notes/*
